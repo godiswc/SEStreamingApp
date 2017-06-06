@@ -17,8 +17,11 @@ public class KafkaUtil {
     }
 
     public static void createTopic(String zkString, KafkaTopicBean bean) {
+
         ZkUtils zkUtils = ZkUtils.apply(zkString, 30000, 30000, JaasUtils.isZkSecurityEnabled());
-        AdminUtils.createTopic(zkUtils, bean.getTopic(), bean.getPartiton(), bean.getReplicaNum(), new Properties(), RackAwareMode.Enforced$.MODULE$);
+        if(!AdminUtils.topicExists(zkUtils,bean.getTopic())) {
+            AdminUtils.createTopic(zkUtils, bean.getTopic(), bean.getPartiton(), bean.getReplicaNum(), new Properties(), RackAwareMode.Enforced$.MODULE$);
+        }
         zkUtils.close();
     }
 

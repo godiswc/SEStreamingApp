@@ -7,18 +7,18 @@ public class KafkaTopicBean {
     private String topic;
     private int partiton;
     private int replicaNum;
-    private String descrbe;
+    private String desribe;
     private int operationType;
 
 
     public KafkaTopicBean() {
     }
 
-    public KafkaTopicBean(String topic, int partiton, int replicaNum, String descrbe, int operationType) {
+    public KafkaTopicBean(String topic, int partiton, int replicaNum, String desribe, int operationType) {
         this.topic = topic;
         this.partiton = partiton;
         this.replicaNum = replicaNum;
-        this.descrbe = descrbe;
+        this.desribe = desribe;
         this.operationType = operationType;
     }
 
@@ -46,12 +46,12 @@ public class KafkaTopicBean {
         this.replicaNum = replicaNum;
     }
 
-    public String getDescrbe() {
-        return descrbe;
+    public String getDesribe() {
+        return desribe;
     }
 
-    public void setDescrbe(String descrbe) {
-        this.descrbe = descrbe;
+    public void setDesribe(String desribe) {
+        this.desribe = desribe;
     }
 
     public int getOperationType() {
