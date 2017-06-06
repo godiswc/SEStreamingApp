@@ -1,0 +1,38 @@
+package com.cloudera.kafka;
+
+import kafka.admin.AdminUtils;
+import kafka.admin.RackAwareMode;
+import kafka.utils.ZkUtils;
+import org.apache.kafka.common.security.JaasUtils;
+
+import java.util.Properties;
+
+/**
+ * Created by root on 5/30/17.
+ */
+public class KafkaUtil {
+
+    public KafkaUtil() {
+
+    }
+
+    public static void createTopic(String zkString, KafkaTopicBean bean) {
+<<<<<<< 4e7da43800317e6bced85626d9d41357640da401
+
+        ZkUtils zkUtils = ZkUtils.apply(zkString, 30000, 30000, JaasUtils.isZkSecurityEnabled());
+        if(!AdminUtils.topicExists(zkUtils,bean.getTopic())) {
+            AdminUtils.createTopic(zkUtils, bean.getTopic(), bean.getPartiton(), bean.getReplicaNum(), new Properties(), RackAwareMode.Enforced$.MODULE$);
+        }
+=======
+        ZkUtils zkUtils = ZkUtils.apply(zkString, 30000, 30000, JaasUtils.isZkSecurityEnabled());
+        AdminUtils.createTopic(zkUtils, bean.getTopic(), bean.getPartiton(), bean.getReplicaNum(), new Properties(), RackAwareMode.Enforced$.MODULE$);
+>>>>>>> test
+        zkUtils.close();
+    }
+
+    public static void dropTopic(String zkString, KafkaTopicBean bean) {
+        ZkUtils zkUtils = ZkUtils.apply(zkString, 30000, 30000, JaasUtils.isZkSecurityEnabled());
+        AdminUtils.deleteTopic(zkUtils, bean.getTopic());
+        zkUtils.close();
+    }
+}
