@@ -34,7 +34,7 @@ import org.json4s.jackson.JsonMethods._
 
 /*    StreamingExamples.setStreamingLogLevels() */
 
-    val Array(brokers, topics) = args
+/**    val Array(brokers, topics) = args
 
     // Create context with 2 second batch interval
     val sparkConf = new SparkConf().setAppName("DirectKafka")
