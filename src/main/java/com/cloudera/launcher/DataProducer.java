@@ -10,14 +10,15 @@ import onecloud.plantpower.database.driver.protobuf.Driver;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-
 /**
  * Created by root on 5/31/17.
  */
 public class DataProducer {
 
 
+
     public DataProducer(){
+
 
     }
 
