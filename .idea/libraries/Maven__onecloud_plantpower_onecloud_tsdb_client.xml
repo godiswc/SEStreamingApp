@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: onecloud.plantpower:onecloud-tsdb-client">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/onecloud/plantpower/onecloud-tsdb-client/onecloud-tsdb-client-.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/onecloud/plantpower/onecloud-tsdb-client/onecloud-tsdb-client--javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/onecloud/plantpower/onecloud-tsdb-client/onecloud-tsdb-client--sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
