@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: it.nerdammer.bigdata:spark-hbase-connector_2.10:1.0.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/it/nerdammer/bigdata/spark-hbase-connector_2.10/1.0.1/spark-hbase-connector_2.10-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/it/nerdammer/bigdata/spark-hbase-connector_2.10/1.0.1/spark-hbase-connector_2.10-1.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/it/nerdammer/bigdata/spark-hbase-connector_2.10/1.0.1/spark-hbase-connector_2.10-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
