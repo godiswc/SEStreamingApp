@@ -1,0 +1,8 @@
+com/cloudera/kafka/KafkaUtil.class
+com/cloudera/common/SEStreamingConstants.class
+com/onecloud/tsdb/demo/TSDBClientDemo.class
+com/cloudera/launcher/DataRetriever.class
+com/cloudera/kafka/SEKafkaProducer.class
+com/cloudera/kafka/KafkaTopicBean.class
+com/cloudera/launcher/DataProducer.class
+com/onecloud/tsdb/demo/TSDBDataRetriever.class
