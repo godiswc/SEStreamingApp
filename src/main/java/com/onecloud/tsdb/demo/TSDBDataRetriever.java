@@ -48,10 +48,14 @@ public class TSDBDataRetriever {
         Driver.FindDataPointRequest request = requestBuild(prop);
         Driver.FindDataPointResponse response = client.findDataPoint(request);
 
-
         if (response.getStatus() && response.getDataPointsCount() > 0) {
             logger.info("Find data: \t success");
             System.out.println("Find data: \t success");
+            for(TSDBStruct.DataPoint dp:response.getDataPointsList()){
+                for(TSDBStruct.PointValue pv: dp.getValuesList()){
+                    System.out.println("Time "+pv.getTimestamp()+" value "+pv.getFloatValue());
+                }
+            }
         }
         else
             logger.info("Find data: \t fail");
@@ -63,7 +67,7 @@ public class TSDBDataRetriever {
     public Driver.FindDataPointRequest requestBuild(Properties prop){
         long now = System.currentTimeMillis() / 1000 * 1000;
         if(lastEndTime == 0){
-            lastEndTime = now - 60*1000;
+            lastEndTime = now - 6000*1000;
         }
 
         if(builder == null) {

@@ -56,9 +56,5 @@ public class DataProducer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
-
-
 }
