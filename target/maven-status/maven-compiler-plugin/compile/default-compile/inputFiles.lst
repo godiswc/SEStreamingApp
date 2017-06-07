@@ -1,9 +1,0 @@
-/mnt/hgfs/godiswc/workspace/streamingApp/src/main/java/com/cloudera/common/SEStreamingConstants.java
-/mnt/hgfs/godiswc/workspace/streamingApp/src/main/java/com/onecloud/tsdb/demo/TSDBDataRetriever.java
-/mnt/hgfs/godiswc/workspace/streamingApp/src/main/java/com/cloudera/kafka/SEKafkaProducer.java
-/mnt/hgfs/godiswc/workspace/streamingApp/src/main/java/com/cloudera/launcher/DataProducer.java
-/mnt/hgfs/godiswc/workspace/streamingApp/src/main/java/com/cloudera/kafka/KafkaUtil.java
-/mnt/hgfs/godiswc/workspace/streamingApp/src/main/java/com/cloudera/launcher/DataRetriever.java
-/mnt/hgfs/godiswc/workspace/streamingApp/src/main/java/com/cloudera/kafka/KafkaTopicBean.java
-/mnt/hgfs/godiswc/workspace/streamingApp/src/main/java/com/onecloud/tsdb/demo/TSDBClientDemo.java
-/mnt/hgfs/godiswc/workspace/streamingApp/src/main/scala/sparkstreaming/HBaseUtil.java
