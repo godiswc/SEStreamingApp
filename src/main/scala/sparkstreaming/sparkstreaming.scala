@@ -1,12 +1,8 @@
 package sparkstreaming
-<<<<<<< HEAD
+
 import _root_.kafka.serializer.{DefaultDecoder, StringDecoder}
 import org.apache.spark.SparkConf
 import org.apache.spark.storage.StorageLevel
-=======
-import kafka.serializer.StringDecoder
-
->>>>>>> 69a64ccdcfb672801e84a68fcf8258f662ed4025
 import org.apache.spark.streaming._
 import org.apache.spark.streaming.dstream.DStream
 import org.apache.spark.streaming.kafka._
