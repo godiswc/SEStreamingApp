@@ -18,8 +18,8 @@ public class TSDBClientDemo {
 		TSDBClient client = new TSDBClient("10.0.43.24", 4343);
 
 		try {
-			testFindFactory(client);
-			testFindPointGroup(client);
+			//testFindFactory(client);
+			//testFindPointGroup(client);
 
 			//testAddPoint(client);
 			//testFindPoint(client);

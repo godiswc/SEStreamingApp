@@ -26,7 +26,8 @@ public class TSDBDataRetriever {
     private TSDBClient client;
     private long lastEndTime;
     private Map<String,Long> timestampMap;
-    //private int index =0;
+    private long period = 0L;
+    private long interval =0L;
 
 
     private Driver.FindDataPointRequest.Builder builder;
@@ -57,7 +58,7 @@ public class TSDBDataRetriever {
         Driver.FindDataPointResponse response = client.findDataPoint(request);
 
         if (response.getStatus() && response.getDataPointsCount() > 0) {
-            //logger.info("Find data: \t success");
+            logger.info("Find data: \t success");
             //System.out.println("Find data: \t success");
 
 //            List<TSDBStruct.DataPoint> list = response.getDataPointsList();
@@ -83,17 +84,18 @@ public class TSDBDataRetriever {
 //                }
 //            }
 
-            for(TSDBStruct.DataPoint dp:response.getDataPointsList()){
-                for(TSDBStruct.PointValue pv: dp.getValuesList()){
-                    if(pv.hasBoolValue()) System.out.println("boolean");
-                    if(pv.hasDoubleValue()) System.out.println("double");
-                    if(pv.hasFloatValue()) System.out.println("float");
-                    if(pv.hasIntValue()) System.out.println("int");
-                    if(pv.hasLongValue()) System.out.println("long");
-                    //System.out.println("===================="+index);
-                    System.out.println("Time "+pv.getTimestamp()+" value "+pv.getFloatValue());
-                }
-            }
+//            for(TSDBStruct.DataPoint dp:response.getDataPointsList()){
+//
+//                for(TSDBStruct.PointValue pv: dp.getValuesList()){
+//                    if(pv.hasBoolValue()) System.out.println("boolean");
+//                    if(pv.hasDoubleValue()) System.out.println("double");
+//                    if(pv.hasFloatValue()) System.out.println("float");
+//                    if(pv.hasIntValue()) System.out.println("int");
+//                    if(pv.hasLongValue()) System.out.println("long");
+//                    //System.out.println("===================="+index);
+//                    System.out.println("Time "+pv.getTimestamp()+" value "+pv.getFloatValue());
+//                }
+//            }
         }
         else
             logger.info("Find data: \t fail");
@@ -104,9 +106,13 @@ public class TSDBDataRetriever {
 
     public Driver.FindDataPointRequest requestBuild(Properties prop){
         long now = System.currentTimeMillis() / 1000 * 1000;
-        long interval = Long.parseLong(prop.getProperty(SEStreamingConstants.FETCH_TIME_OFFSET));
+        if(interval==0L && period ==0L) {
+            period = Long.parseLong(prop.getProperty(SEStreamingConstants.FETCH_TIME_OFFSET));
+            interval = Long.parseLong(prop.getProperty(SEStreamingConstants.FETCH_MAX_INTERVAL));
+
+        }
         if(lastEndTime == 0){
-            lastEndTime = now - interval;
+            lastEndTime = now - period;
         }
 
         if(builder == null) {
@@ -119,11 +125,14 @@ public class TSDBDataRetriever {
                 String[] point = s.split(SEStreamingConstants.DELIMITER);
                 builder.addPoints(TSDBClient.newPoint(point[0], point[1], point[2]));
             }
-        }
+       }
+
+       long endTime = (now-lastEndTime) > interval ? lastEndTime+interval:now;
+
 
         Driver.FindDataPointRequest request = builder.setInterpolation(true).setDownsampler(TSDBStruct.Downsampler.AVG).setInterval(1000)
-                .setStartTimestamp(lastEndTime).setEndTimestamp(now).build();
-        lastEndTime = now;
+                .setStartTimestamp(lastEndTime).setEndTimestamp(endTime).build();
+        lastEndTime = endTime;
         return request;
     }
 }

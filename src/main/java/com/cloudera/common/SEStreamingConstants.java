@@ -7,11 +7,10 @@ public class SEStreamingConstants {
 
 
     public final static String POINTS_LIST = "points_list";
-    public final static String SEP = "\\|";
+    public final static String SEP = "\\;";
     public final static String DELIMITER = "\\,";
     public final static String TSDB_HOST="TSDB_HOST";
     public final static String TSDB_PORT="TSDB_PORT";
-
 
 
     //conf for kafka producer
@@ -27,6 +26,8 @@ public class SEStreamingConstants {
     public final static String DESCRIBE="describe";
     public final static String OPERATION_TYPE="operationType";
     public final static String FETCH_TIME_OFFSET="fetch.offset";
+    public final static String FETCH_MAX_INTERVAL="fetch.max.interval";
+
 
     public final static String ZKSTR="zkstr";
 

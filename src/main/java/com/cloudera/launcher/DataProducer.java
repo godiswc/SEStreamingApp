@@ -47,6 +47,7 @@ public class DataProducer {
             KafkaUtil.createTopic(zkstr,dp.genKafkaTopicBean(prop));
 
             while(true){
+                //System.out.println("Enter iteration");
                 Driver.FindDataPointResponse response = retriever.retrieve(prop);
                 producer.send(response);
                 try {
@@ -55,7 +56,6 @@ public class DataProducer {
                     e.printStackTrace();
                 }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
