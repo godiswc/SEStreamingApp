@@ -19,7 +19,6 @@ public class DataProducer {
 
     public DataProducer(){
 
-
     }
 
     public KafkaTopicBean genKafkaTopicBean(Properties prop){
@@ -49,8 +48,12 @@ public class DataProducer {
 
             while(true){
                 Driver.FindDataPointResponse response = retriever.retrieve(prop);
-
                 producer.send(response);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
 
         } catch (IOException e) {

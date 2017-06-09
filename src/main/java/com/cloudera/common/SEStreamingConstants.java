@@ -26,11 +26,18 @@ public class SEStreamingConstants {
     public final static String REPLICATION_NUM="replicationNum";
     public final static String DESCRIBE="describe";
     public final static String OPERATION_TYPE="operationType";
+    public final static String FETCH_TIME_OFFSET="fetch.offset";
 
     public final static String ZKSTR="zkstr";
 
 
-
-
+    public final static String CONSUMERTOPICS="consumer.topics";
+    public final static String CONSUMERNUMTHREADS="consumer.numThreads";
+    public final static String HBASETABLE="hbaseTable";
+    public final static String HBASESPLITKEYS="hbaseSplitKey";
+    public final static String HBASECF="hbaseCF";
+    public final static String CONSUMEROFFSET="consumer.offset";
+    public final static String ZOOKEEPERCONNECT="zookeeper.connect";
+    public final static String WINDOWSECONDS="window.seconds";
 
 }
