@@ -1,5 +1,4 @@
-package sparkstreaming
-
+package com.cloudera.sec.spark.streaming
 
 import onecloud.plantpower.database.driver.protobuf.Driver.FindDataPointResponse
 import org.apache.hadoop.fs.Path

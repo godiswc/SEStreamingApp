@@ -1,4 +1,4 @@
-package sparkstreaming
+package com.cloudera.sec.spark.streaming
 
 import java.util
 
@@ -65,4 +65,19 @@ class HBaseDAO(hbaseConf:Configuration){
     println("======row ======   "+row)
     row.getBytes()
   }
+
+//  def query(request: SECDataPointQuerRequest, hTable: HTable): Unit ={
+//    val scan = new Scan()
+//
+//    val startRow =  Bytes.toBytes(request.getPointCode+"|"+request.getFactoryCode+"|"+request.getGroupCode+"|"+request.getStartTime);
+//    val stopRow =  Bytes.toBytes(request.getPointCode+"|"+request.getFactoryCode+"|"+request.getGroupCode+"|"+request.getEndTime);
+//    scan.setStartRow(startRow)
+//    scan.setStopRow(stopRow)
+//
+//    val scanner = hTable.getScanner(scan)
+//    for(r :scanner){
+//
+//    }
+//  }
+
 }

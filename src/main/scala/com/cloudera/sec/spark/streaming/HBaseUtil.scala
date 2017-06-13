@@ -1,4 +1,4 @@
-package sparkstreaming
+package com.cloudera.sec.spark.streaming
 
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.hbase.{HBaseConfiguration, HColumnDescriptor, HTableDescriptor}

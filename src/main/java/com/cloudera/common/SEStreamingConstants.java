@@ -27,7 +27,7 @@ public class SEStreamingConstants {
     public final static String OPERATION_TYPE="operationType";
     public final static String FETCH_TIME_OFFSET="fetch.offset";
     public final static String FETCH_MAX_INTERVAL="fetch.max.interval";
-
+    public final static String TSDBINTERVAL="tsdb.interval";
 
     public final static String ZKSTR="zkstr";
 

@@ -1,4 +1,4 @@
-package sparkstreaming
+package com.cloudera.sec.spark.streaming
 
 import java.io.FileInputStream
 import java.util.Properties

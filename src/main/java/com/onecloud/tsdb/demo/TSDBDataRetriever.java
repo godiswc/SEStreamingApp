@@ -106,6 +106,7 @@ public class TSDBDataRetriever {
 
     public Driver.FindDataPointRequest requestBuild(Properties prop){
         long now = System.currentTimeMillis() / 1000 * 1000;
+        long tsdbInterval = Long.parseLong(prop.getProperty(SEStreamingConstants.TSDBINTERVAL));
         if(interval==0L && period ==0L) {
             period = Long.parseLong(prop.getProperty(SEStreamingConstants.FETCH_TIME_OFFSET));
             interval = Long.parseLong(prop.getProperty(SEStreamingConstants.FETCH_MAX_INTERVAL));
@@ -130,7 +131,7 @@ public class TSDBDataRetriever {
        long endTime = (now-lastEndTime) > interval ? lastEndTime+interval:now;
 
 
-        Driver.FindDataPointRequest request = builder.setInterpolation(true).setDownsampler(TSDBStruct.Downsampler.AVG).setInterval(1000)
+        Driver.FindDataPointRequest request = builder.setInterpolation(true).setDownsampler(TSDBStruct.Downsampler.AVG).setInterval(tsdbInterval)
                 .setStartTimestamp(lastEndTime).setEndTimestamp(endTime).build();
         lastEndTime = endTime;
         return request;
