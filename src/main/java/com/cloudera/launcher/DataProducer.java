@@ -15,8 +15,6 @@ import java.util.Properties;
  */
 public class DataProducer {
 
-
-
     public DataProducer(){
 
     }

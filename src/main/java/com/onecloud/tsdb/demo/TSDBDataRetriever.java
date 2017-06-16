@@ -83,19 +83,22 @@ public class TSDBDataRetriever {
 //                    }
 //                }
 //            }
-
-//            for(TSDBStruct.DataPoint dp:response.getDataPointsList()){
-//
-//                for(TSDBStruct.PointValue pv: dp.getValuesList()){
-//                    if(pv.hasBoolValue()) System.out.println("boolean");
-//                    if(pv.hasDoubleValue()) System.out.println("double");
-//                    if(pv.hasFloatValue()) System.out.println("float");
-//                    if(pv.hasIntValue()) System.out.println("int");
-//                    if(pv.hasLongValue()) System.out.println("long");
-//                    //System.out.println("===================="+index);
-//                    System.out.println("Time "+pv.getTimestamp()+" value "+pv.getFloatValue());
-//                }
-//            }
+            //if(response.getDataPointsList().size()!=9) {
+            //System.out.println("!!!!!!!!!!!!!!!!!list size====" + response.getDataPointsList().size());
+            //}
+            for(TSDBStruct.DataPoint dp:response.getDataPointsList()){
+                //System.out.println("value size===="+dp.getValuesList().size());
+                for(TSDBStruct.PointValue pv: dp.getValuesList()){
+                    if(pv.hasBoolValue()) System.out.print("boolean ");
+                    if(pv.hasDoubleValue()) System.out.print("double ");
+                    if(pv.hasFloatValue()) System.out.print("float ");
+                    if(pv.hasIntValue()) System.out.print("int ");
+                    if(pv.hasLongValue()) System.out.print("long ");
+                    //System.out.println("===================="+index);
+                    //System.out.print(dp.getPoint().getCode()+" ");
+                    System.out.println("Time "+pv.getTimestamp()+" value "+pv.getFloatValue());
+                }
+            }
         }
         else
             logger.info("Find data: \t fail");
@@ -134,6 +137,7 @@ public class TSDBDataRetriever {
         Driver.FindDataPointRequest request = builder.setInterpolation(true).setDownsampler(TSDBStruct.Downsampler.AVG).setInterval(tsdbInterval)
                 .setStartTimestamp(lastEndTime).setEndTimestamp(endTime).build();
         lastEndTime = endTime;
+        //builder.clear();
         return request;
     }
 }

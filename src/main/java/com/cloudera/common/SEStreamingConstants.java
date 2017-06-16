@@ -41,4 +41,9 @@ public class SEStreamingConstants {
     public final static String ZOOKEEPERCONNECT="zookeeper.connect";
     public final static String WINDOWSECONDS="window.seconds";
 
+
+    //Machine learning
+    public final static String LABELNAME="labelName";
+    public final static String STEPSIZE="stepSize";
+
 }

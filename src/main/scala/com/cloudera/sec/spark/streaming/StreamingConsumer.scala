@@ -13,8 +13,8 @@ class StreamingConsumer extends Serializable{
   def startCompute(stream:org.apache.spark.streaming.dstream.DStream[(String,Array[Byte])],table_name:String): Unit = {
     stream.foreachRDD(rdd => {
       rdd.foreach { x =>
-
         val response = this.parseFrom(x._2)
+        println("enter iteration")
         val conf = HBaseConfiguration.create()
         conf.addResource(new Path("/etc/hbase/conf/hbase-site.xml"))
         val hbaseDAO = new HBaseDAO(conf)
